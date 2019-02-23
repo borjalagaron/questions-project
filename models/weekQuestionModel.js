@@ -2,15 +2,22 @@
 
 var mongoose = require('mongoose');
 
-// Setup schema
+// Setup Answer Schema
+var answer = mongoose.Schema({
+    name: String
+});
+
+// Setup Question Schema
 var weekQuestionSchema = mongoose.Schema({
+    title: String,
+    description: String,
     dayOfWeek: {
         type: Number,
         unique: true,
-        min: 1, 
-        max: 7 
+        min: 1,
+        max: 7
     },
-    question: String
+    answers: [answer]
 });
 
 // Export WeekQuestion model sorted by DayOfWeek

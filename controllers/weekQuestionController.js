@@ -23,9 +23,10 @@ exports.index = function (req, res) {
 // Handle create question actions
 exports.new = function (req, res) {
     var weekQuestion = new WeekQuestion();
+    weekQuestion.title = req.body.title;
+    weekQuestion.description = req.body.description;
     weekQuestion.dayOfWeek = req.body.dayOfWeek;
-    weekQuestion.question = req.body.question;
-
+    
     // save the question and check for errors
     weekQuestion.save(function (err) {
         if (err)
