@@ -26,7 +26,8 @@ exports.new = function (req, res) {
     weekQuestion.title = req.body.title;
     weekQuestion.description = req.body.description;
     weekQuestion.dayOfWeek = req.body.dayOfWeek;
-    //TODO: save correctly the answers
+    //TODO: SAVE CORRECTLY THE ANSWERS
+    // weekQuestion.answers = req.body.answers;
 
     // save the question and check for errors
     weekQuestion.save(function (err) {

@@ -16,7 +16,7 @@ var weekQuestionSchema = mongoose.Schema({
     description: String,
     dayOfWeek: {
         type: Number,
-        unique: true,
+        // unique: true,
         required: true,
         min: 1,
         max: 7
@@ -26,6 +26,15 @@ var weekQuestionSchema = mongoose.Schema({
 
 // Export WeekQuestion model sorted by DayOfWeek
 var WeekQuestion = module.exports = mongoose.model('WeekQuestion', weekQuestionSchema);
+
+// Just for testing: Create a Question with answers
+
+// var weekQuestion = new WeekQuestion({
+//     title: 'Its FridayS???',
+//     dayOfWeek: 5,
+//     answers: [{ title: 'answer1' }, { title: 'answer2' }]
+// })
+//weekQuestion.save();
 
 module.exports.get = function (callback, limit) {
     WeekQuestion.find(callback).limit(limit).sort('dayOfWeek');
