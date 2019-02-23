@@ -4,16 +4,20 @@ var mongoose = require('mongoose');
 
 // Setup Answer Schema
 var answer = mongoose.Schema({
-    name: String
+    title: String
 });
 
 // Setup Question Schema
 var weekQuestionSchema = mongoose.Schema({
-    title: String,
+    title: {
+        type: String,
+        required: true
+    },
     description: String,
     dayOfWeek: {
         type: Number,
         unique: true,
+        required: true,
         min: 1,
         max: 7
     },
